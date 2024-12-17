@@ -14,11 +14,11 @@ def kelvin_to_celsius(image):
 
 dataset = dataset.map(kelvin_to_celsius)
 
-start_year = 2015
-end_year = 2023
+start_year = 2024
+end_year = 2024
 
 for year in range(start_year, end_year + 1):  
-    for month in range(1, 13):  
+    for month in range(1, 12):  
         start_date = f"{year}-{month:02d}-01"
         end_date = (datetime(year, month % 12 + 1, 1) if month < 12 else datetime(year + 1, 1, 1)).strftime("%Y-%m-%d")
         
@@ -34,4 +34,5 @@ for year in range(start_year, end_year + 1):
         )
         task.start()
         print(f"Export started for {year}-{month:02d}")
+
 
